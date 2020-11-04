@@ -13,6 +13,8 @@
         function enter(){
             var inputName = document.querySelector("#inputName").value;
             welcome(inputName);
+            document.querySelector("#inputName").value="";
+            document.querySelector("#inputName").focus();
         }
         function welcome(arg){
             alert(arg + "님 환영합니다.");

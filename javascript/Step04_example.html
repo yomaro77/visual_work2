@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>example</title>
+</head>
+<body>
+    <div>div1</div>
+    <div>div2</div>
+    <div>div3</div>
+    <div>div4</div>
+    <div>div5</div>
+    <button onclick="change();">바꾸기</button>
+    <button onclick="blue()">blue</button>
+    <button onclick="black()">black</button>
+    <button onclick="red()">red</button>
+    <button onclick="purple()">purple</button>
+    <button onclick="yellow()">yellow</button>
+    <button onclick="allColor()">AllColor</button>
+
+    <script>
+        function change() {
+            document.querySelectorAll("div")[0].innerText="hello";
+            document.querySelectorAll("div")[1].innerText="hi";
+            document.querySelectorAll("div")[2].style.color="tomato";
+
+            let four = document.querySelectorAll("div")[3];
+            four.innerText = "4번째 div";
+            four.style.color = "green";
+
+            
+        }
+        function allColor() {
+            blue();
+            setTimeout(black, 100);
+            setTimeout(red, 200);
+            setTimeout(purple, 300);
+            setTimeout(yellow, 400);
+        }
+        function blue() {
+            let color = document.querySelectorAll("div");
+            for(i=0; i<color.length; i++) {
+                color[i].style.backgroundColor="blue";
+            }
+            DelayNode
+        }
+        function black() {
+            let color = document.querySelectorAll("div");
+            for(i=0; i<color.length; i++) {
+                color[i].style.backgroundColor="black";
+            }
+        }
+        function red() {
+            let color = document.querySelectorAll("div");
+            for(i=0; i<color.length; i++) {
+                color[i].style.backgroundColor="red";
+            }
+        }
+        function purple() {
+            let color = document.querySelectorAll("div");
+            for(i=0; i<color.length; i++) {
+                color[i].style.backgroundColor="purple";
+            }
+        }
+        function yellow() {
+            let color = document.querySelectorAll("div");
+            for(i=0; i<color.length; i++) {
+                color[i].style.backgroundColor="yellow";
+            }
+        }
+    </script>
+</body>
+</html>
