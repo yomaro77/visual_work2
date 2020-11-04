@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>1104_01</title>
+    <style>
+        #menuTop {
+            width: 860px;
+        }
+        #menuTop ul li {
+            line-height: 30px;
+            vertical-align: middle;
+            text-align: center;
+            list-style: none;
+            float: left;
+        }
+        #menuTop .menuList {
+            display: block;
+            width: 100px;
+            text-decoration: none;
+            background-color: black;
+            color: white;
+        }
+        #menuTop .menuList:hover {
+            background-color: tomato;
+        }
+        #menuTop .menuList:active {
+            font-size: 18px;
+            box-shadow: 0 0 0 3px tomato;
+        }
+
+        #menuTop .menuList ul li {
+            line-height: 30px;
+            vertical-align: middle;
+            text-align: center;
+            list-style: none;
+            float: left;
+        }
+        #menuTop .menuList_sub1 {
+            display: block;
+            width: 100px;
+            background-color: tomato;
+            color: white;
+            text-decoration: none;
+            position: absolute;
+        }
+    </style>
+</head>
+<body>
+    <nav id="menuTop">
+        <ul>
+            <li>
+                <a href="#" class="menuList">Home</a>
+                <ul>
+                    <li><a href="#" class="menuList_sub1">sub1</a></li>
+                    <li><a href="#" class="menuList_sub1">sub1</a></li>
+                    <li><a href="#" class="menuList_sub1">sub1</a></li>
+                </ul>
+            </li>
+            <li><a href="#" class="menuList">Adress</a></li>
+            <li><a href="#" class="menuList">Phone</a></li>
+            <li><a href="#" class="menuList">About</a></li>
+            <li><a href="#" class="menuList">Item</a></li>
+        </ul>
+    </nav>
+
+    <script>
+
+    </script>
+</body>
+</html>

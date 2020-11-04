@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>function2</title>
+</head>
+<body>
+    <h1>function 테스트중...</h1>
+    <input type="text" id="inputName" placeholder="이름입력...">
+    <button onclick="enter()">입장하기</button>
+    <script>
+        function enter(){
+            var inputName = document.querySelector("#inputName").value;
+            welcome(inputName);
+        }
+        function welcome(arg){
+            alert(arg + "님 환영합니다.");
+        }
+    </script>
+</body>
+</html>
