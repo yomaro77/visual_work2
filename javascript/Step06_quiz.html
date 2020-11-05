@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>for_quiz</title>
+    <style>
+        button {
+            border: 0;
+            outline: 0;
+            background-color: tomato;
+            color: white;
+            border-radius: 5px;
+        }
+        button:active {
+            box-shadow: 0 0 0 3px tomato;
+            font-size: 14px;
+        }
+        input {
+            outline: 0;
+            color: tomato;
+        }
+    </style>
+</head>
+<body>
+    <h1>array 테스트중...</h1>
+    <input type="text" id="inputName" placeholder="이름입력..."/>
+    <button onclick="saveToArray();" onkeypress="saveToArray();">배열에 저장하기</button>
+    <button onclick="printToConsole();">저장된 내용 콘솔에 순서대로 출력하기</button>
+    <ul id="nameList">
+
+    </ul>
+    <script>
+        //입력한 이름을 저장할 예정인 배열(array) 미리 만들어 놓기
+        let names=[];
+
+        function saveToArray(){
+            let sName = document.querySelector("#inputName");
+            names.push(sName.value);
+
+            sName.value="";
+            sName.focus();
+
+            console.log(names);
+        }
+
+        function printToConsole(){
+            document.querySelector("#nameList").innerText = "";
+
+            for(let i=0; i<names.length; i++){
+                console.log(names[i]);
+                //document.querySelector("#nameList").innerHTML += "<li>" + names[i] + "</li>";
+
+                //<li></li> 생성
+                let li = document.createElement("li");
+                //li에 값 집어넣기
+                li.innerText = names[i];
+                //ul 에 li 태그 삽입
+                document.querySelector("#nameList").append(li);
+                //document.querySelector("#nameList").append(li.innerText = names[i]);
+            }
+        }
+    </script>
+</body>
+</html>
