@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>boolean</title>
+</head>
+<body>
+    <h1>boolean type 테스트중....</h1>
+    <p id="info"></p>
+
+    <label for="id">아이디</label>
+    <input type="text" id="id" />
+    <label for="pw">비밀번호</label>
+    <input type="password" id="pw" />
+    <button onclick="loginBtn()">로그인</button>
+    <script>
+        //boolean type의 변수를 대화식으로 짜는게 좋다 (예: isWait, isRun, isMan, isWoman 등)
+        let isMan = confirm("남자이면 확인을 누르세요.");
+        if(isMan) {
+            document.querySelector("#info").innerText="당신은 남자이군요!";
+        } else {
+            document.querySelector("#info").innerText="당신은 여자이군요...";
+        }
+
+        function loginBtn() {
+            let id, pw;
+            id = document.querySelector("#id").value;
+            pw = document.querySelector("#pw").value;
+
+            if(id == "tomato" && pw == 1234){
+                alert(`${id} 님 로그인을 환영합니다.`);
+            } else {
+                alert("로그인 실패");
+            }
+        }
+
+
+    </script>
+</body>
+</html>

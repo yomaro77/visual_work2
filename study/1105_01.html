@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>1105</title>
+    <style>
+        input {
+            width: 70px;
+        }
+    </style>
+</head>
+<body>
+    <div>
+        <input type="text" id="value1">
+        <button onclick="plus()">+</button>
+        <input type="text" id="value2">
+        <span>=</span>
+        <span id="result"></span>
+    </div>
+    <script>
+        function plus() {
+            let v1 = document.querySelector("#value1").value;
+            let v2 = document.querySelector("#value2").value;
+            let result = parseFloat(v1) + parseFloat(v2);
+            document.querySelector("#result").innerText=result;
+        }
+    </script>
+</body>
+</html>
