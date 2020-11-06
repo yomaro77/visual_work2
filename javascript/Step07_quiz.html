@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>quiz</title>
+    <style>
+        .box {
+            width: 100px;
+            height: 100px;
+            background-color: yellow;
+            border: 1px solid tomato; /* */
+            margin: 10px 0 0 10px;
+            text-align: center;
+            line-height: 100px;
+            vertical-align: middle;
+            color: red;
+            float: left;
+        }
+        .box:hover {
+            background-color: coral;
+            border: 0 ;
+        }
+        .box:active {
+            font-size: 20px;
+        }
+    </style>
+</head>
+<body>
+    <h1>EventListener TEST</h1>
+    <div class="box"></div>
+    <div class="box"></div>
+    <div class="box"></div>
+    <div class="box"></div>
+    <div class="box"></div>
+    <div class="box"></div>
+    <div class="box"></div>
+    <div class="box"></div>
+    <div class="box"></div>
+    <div class="box"></div>
+    <div class="box"></div>
+    <div class="box"></div>
+    <div class="box"></div>
+    <div class="box"></div>
+    <div class="box"></div>
+    <div class="box"></div>
+    <div class="box"></div>
+    <div class="box"></div>
+    <div class="box"></div>
+    <div class="box"></div>
+    <script>
+        (function(){
+            let arr = document.querySelectorAll(".box");
+            arr.forEach(function(item, index){
+                item.addEventListener("click", function(){
+                    console.log(this);
+                    this.innerText = "clicked";
+                });
+            });
+
+            /*
+            let arr = document.querySelectorAll(".box");
+            for(i=0; i<arr.length; i++) {
+                arr[i].addEventListener("click", function(){
+                    console.log(this);
+                    this.innerText = "clicked";
+                });
+            };
+            */
+
+        })();
+    </script>
+</body>
+</html>

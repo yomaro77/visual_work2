@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EventListener</title>
+    <style>
+        .box {
+            width: 100px;
+            height: 100px;
+            background-color: yellow;
+            border: 1px solid tomato; /* */
+            margin: 10px 0 0 10px;
+            text-align: center;
+            line-height: 100px;
+            vertical-align: middle;
+            color: red;
+        }
+        .box:hover {
+            background-color: coral;
+            box-shadow: 0 0 0 3px coral;
+            border: 0 ;
+        }
+        .box:active {
+            font-size: 20px;
+        }
+    </style>
+</head>
+<body>
+    <h1>EventListener TEST</h1>
+    <button onclick="clicked();">click me</button>
+    <button id="myBtn">click me2</button>
+    <div class="box" id="myDiv"></div>
+    <div class="box"></div>
+    <script>
+        function clicked(){
+            alert("wow");
+        }
+        document.querySelector("#myBtn").addEventListener("click", function(){
+            alert("wow2");
+        });
+
+        document.querySelector("#myDiv").addEventListener("click", function(){
+            //document.querySelector("#myDiv").innerText = "clicked!";
+            this.innerText = "clicked!"
+        });
+    </script>
+</body>
+</html>

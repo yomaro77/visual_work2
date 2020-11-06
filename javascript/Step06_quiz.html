@@ -36,7 +36,11 @@
 
         function saveToArray(){
             let sName = document.querySelector("#inputName");
-            names.push(sName.value);
+            if(sName.value == ""){
+                alert("이름을 입력해주세요!");
+            } else {
+                names.push(sName.value);
+            }
 
             sName.value="";
             sName.focus();
@@ -47,6 +51,7 @@
         function printToConsole(){
             document.querySelector("#nameList").innerText = "";
 
+            /*
             for(let i=0; i<names.length; i++){
                 console.log(names[i]);
                 //document.querySelector("#nameList").innerHTML += "<li>" + names[i] + "</li>";
@@ -59,6 +64,15 @@
                 document.querySelector("#nameList").append(li);
                 //document.querySelector("#nameList").append(li.innerText = names[i]);
             }
+            */
+
+            //forEach를 사용해서 li를 추가하면 아래와 같음 
+            names.forEach(function(item, index){
+                let li = document.createElement("li");
+                li.innerText = `${item} 는 ${index}번째 array에 들어있는 값이야!`;
+                document.querySelector("#nameList").append(li);
+            });
+
         }
     </script>
 </body>

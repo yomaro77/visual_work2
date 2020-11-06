@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .wrapper {
+            width: 500px;
+            height: 500px;
+            border: 1px solid red;
+            cursor: crosshair;  /* 십자가 커서 */
+            /* cursor: pointer; 손가락 커서 */
+        }
+    </style>
+</head>
+<body>
+    <h1>EventListener TEST..</h1>
+    <div class="wrapper" id="myDiv">
+
+    </div>
+
+   <script>
+       document.querySelector("#myDiv").addEventListener("mousemove", function(event){
+           console.log("mousemove!");
+           console.log(event);
+           let info = `x : ${event.offsetX} y : ${event.offsetY}`;
+           this.innerText = info;
+       });
+   </script> 
+</body>
+</html>
