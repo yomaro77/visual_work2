@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>example</title>
+    <style>
+        button {
+            border: 0;
+            border-radius: 3px;
+            background-color: cadetblue;
+            color: white;
+            line-height: 27px;
+        }
+        input {
+            line-height: 23px;
+        }
+    </style>
+</head>
+<body>
+    <h1>논리 연산자 테스트 예제</h1>
+    <input type="text" id="height" placeholder="키를 입력하세요...">
+    <input type="text" id="weight" placeholder="몸무게를 입력하세요...">
+    <button id="checkBtn">놀이 기구를 탈 수 있는지 확인하기</button>
+    <p id="result"></p>
+
+    <script>
+        /*
+            키가 너무 작거나 몸무게가 너무 크면 팔 수 없는 놀이 기구가 있다.
+            키는 150 이상, 몸무게는 100 미맘ㄴ이 기준이다.
+            키와 몸무게를 입력하고 확인하기 버튼을 누르면
+            해당 놀이 기구를 탈 수 있는지 없는지 메세비를
+            p 요소의 innerText 로 출력하는 프로그래밍을 해보세요.
+        */
+
+        document.querySelector("#checkBtn").addEventListener("click", function(e){
+            let height = document.querySelector("#height");
+            let weight = document.querySelector("#weight");
+
+            if(height.value == ""){
+                alert("키를 입력하세요")
+            } else if(weight.value == ""){
+                alert("몸무게를 입력하세요")
+            } else {
+                if(height.value >= 150 && weight.value < 100){
+                    document.querySelector("#result").innerText = "해당 놀이기구를 탈 수 있습니다.";
+                } else {
+                    document.querySelector("#result").innerText = "해당 놀이기구를 탈 수 없습니다.";
+                }
+            }
+
+            console.log(`${height.value}, ${weight.value}`);
+
+            
+        });
+        
+    </script>
+</body>
+</html>

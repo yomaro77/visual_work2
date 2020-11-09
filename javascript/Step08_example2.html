@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>example2</title>
+</head>
+<body>
+    <h1>논리 연산자 테스트중...</h1>
+
+    <input type="text" id="inputId" placeholder="아이디 입력..." />
+    <input type="text" id="inputPwd" placeholder="비밀번호 입력..." />
+    <button id="authBtn">인증하기</button>
+    <p id="result"></p>
+
+    <script>
+        document.querySelector("#authBtn").addEventListener("click", function(){
+            let id = document.querySelector("#inputId");
+            let pw = document.querySelector("#inputPwd");
+
+            if(id.value == "gura" && pw.value == "1234"){
+                document.querySelector("#result").innerText = `${id.value}님 인증되었습니다.`;
+            } else {
+                document.querySelector("#result").innerText = "아이디 혹은 비밀번호가 틀려요";
+            }
+
+            id.value = "";
+            pw.value = "";
+        });
+    </script>
+</body>
+</html>

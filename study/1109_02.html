@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+        }
+        canvas {
+            border: 1px dashed tomato;
+        }
+    </style>
+</head>
+<body>
+    <script>
+        let canvas = document.createElement('canvas');
+        canvas.setAttribute("width", "700");
+        canvas.setAttribute("height", "700");
+        let ctx = canvas.getContext('2d');
+
+        document.body.append(canvas);
+
+        ctx.beginPath();
+        ctx.moveTo(100, 100);
+        ctx.lineTo(200, 100);
+        ctx.lineTo(200, 200);
+        ctx.lineTo(100, 100);
+        ctx.stroke();
+
+        
+    </script>
+</body>
+</html>

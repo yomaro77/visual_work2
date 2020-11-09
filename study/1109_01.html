@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        canvas {
+            border: 1px dashed grey;
+        }
+
+        button {
+            width: 20px;
+            height: 20px;
+            border: 0;
+            border-radius: 3px;
+            margin: 0px 0px 5px 5px;
+        }
+    </style>
+</head>
+<body>
+    <canvas id="myCanvas" width="700" height="700"></canvas>
+    <br />
+    선 색상 : <input type="color" id="changeColor" />
+    선 굵기 : <select id="changeLineWidth"></select>
+    배경 색상 : <input type="color" id="changeBackColor" />
+    <button id="setColor"></button>
+    
+
+    <script>
+        let canvas = document.querySelector("#myCanvas");
+        let ctx = canvas.getContext('2d');
+
+        let x;
+        let y;
+        let mouseDown = false;
+
+        ctx.lineWidth = 5;
+        ctx.lineCap = "round";
+
+        
+        document.querySelector("#myCanvas").addEventListener("mousedown", function(){
+            mouseDown = true;
+
+            ctx.beginPath();
+            ctx.moveTo(x, y);
+            ctx.lineTo(x, y);
+            ctx.stroke();
+
+        });
+
+        document.querySelector("#myCanvas").addEventListener("mouseup", function(){
+            mouseDown = false;
+        });
+
+        document.querySelector("#myCanvas").addEventListener("mousemove", function(e){
+            //좌표를 실시간으로 저장
+            x = e.offsetX;
+            y = e.offsetY;
+
+            if(mouseDown == true){
+                ctx.lineTo(x, y);
+                ctx.stroke();
+            };
+        });
+
+        //선 색상 변경
+        document.querySelector("#changeColor").addEventListener("change", function(){
+            ctx.strokeStyle = this.value;
+        });
+
+        //선 굵기 변경
+        for(i=0; i<101; i++){
+            let option = document.createElement("option");
+            option.innerText = i;
+            document.querySelector("#changeLineWidth").append(option);
+
+            if(i == 5){
+                option.setAttribute("selected", "selected");
+            }
+        };
+        document.querySelector("#changeLineWidth").addEventListener("change", function(){
+            ctx.lineWidth = this.value;
+        });
+
+        //배경 색 변경 & 사용한 색상 append
+        document.querySelector("#changeBackColor").addEventListener("change", function(){
+            ctx.fillStyle = this.value;
+            ctx.fillRect(0, 0, 700, 700);
+
+            //append ........ing
+            let btn = document.createElement("button");
+            btn.style.backgroundColor = this.value;
+            btn.setAttribute("value", this.value);
+            btn.setAttribute("id", "setColor");
+            document.body.append(btn);
+        });
+
+        document.querySelector("#setColor").addEventListener("click", function(){
+            //ctx.fillStyle = this.value;
+            console.log(this.value);
+        });
+
+    </script>
+</body>
+</html>
