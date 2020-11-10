@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        canvas {
+            border: 1px dashed red;
+        }
+
+        button {
+            width: 20px;
+            height: 20px;
+            border: 0;
+            border-radius: 2px;
+            margin: 0 0 0 5px;
+        }
+    </style>
+</head>
+<body>
+
+    <div id="myCanvas">
+
+    </div>
+    <div class="lineColor">
+        <input type="color" id="changeLineColor" />
+    </div>
+    <select id="lineSize"></select>
+    
+    <script>
+        let canvas = document.createElement("canvas");
+        let context = canvas.getContext("2d");
+        canvas.setAttribute("width", "700");
+        canvas.setAttribute("height", "700");
+        document.querySelector("#myCanvas").append(canvas);
+
+        let x;
+        let y;
+        let clickBtn = false;
+        let lineColor = "red";
+        let lineSize = 10;
+
+        context.lineCap = "round";
+        context.lineWidth = lineSize;
+
+
+
+
+
+        canvas.addEventListener("mousedown", function(){
+            clickBtn = true;
+            context.strokeStyle = lineColor;
+            context.lineWidth = lineSize;
+
+            context.beginPath();
+            context.moveTo(x, y);
+            context.lineTo(x, y);
+            context.stroke();
+        });
+
+        canvas.addEventListener("mousemove", function(e){
+            x = e.offsetX;
+            y = e.offsetY;
+
+            if(clickBtn == true){
+
+                context.lineTo(x, y);
+                context.stroke();
+            }
+        });
+
+        canvas.addEventListener("mouseup", function(){
+            clickBtn = false;
+        });
+
+        document.querySelector("#changeLineColor").addEventListener("change", function(){
+            lineColor = this.value;
+            let button = document.createElement("button");
+            button.setAttribute("value", lineColor);
+            button.setAttribute("style", `background-color: ${lineColor}`);
+            button.addEventListener("click", function(){
+                lineColor = this.value;
+                console.log(this.value);
+            });
+            document.querySelector(".lineColor").append(button);
+        });
+
+
+        for(i=0; i<101; i++){
+            let option = document.createElement("option");
+            option.innerText = i;
+            document.querySelector("#lineSize").append(option);
+        }
+        document.querySelector("#lineSize").addEventListener("change", function(){
+            lineSize = this.value;
+        });
+
+
+
+
+
+    </script>
+</body>
+</html>

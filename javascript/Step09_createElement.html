@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Step09_createElement.html</title>
+    <style>
+        .my-class {
+            background-color: yellow;
+            color: red;
+        }
+    </style>
+</head>
+<body>
+    <h1>원하는 요소를 동적으로 만들기 연습</h1>
+    <div id="one">
+
+    </div>
+
+
+    <script>
+        /*
+            <p class="my-class">p1 요소 입니다</p>
+        */
+
+        let p1 = document.createElement("p");
+        p1.innerText = "p1 요소 입니다";
+        p1.setAttribute("class", "my-class");
+        document.querySelector("#one").append(p1);
+    </script>
+</body>
+</html>

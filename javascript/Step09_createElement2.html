@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>element</title>
+    <style>
+        .my-class {
+            background-color: tomato;
+            color: white;
+        }
+    </style>
+</head>
+<body>
+    <h1>연습</h1>
+    <button id="makeBtn">만들기</button>
+    <div id="one">
+
+    </div>
+
+    <script>
+        document.body.addEventListener("keydown", function(e){
+            console.log(e);
+        });
+    
+        document.querySelector("#makeBtn").addEventListener("click", function(){
+            let p1 = document.createElement("p");
+            p1.innerText = "p1 요소 입니다.";
+            p1.setAttribute("class", "my-class");
+            document.querySelector("#one").append(p1);
+        });
+    </script>
+</body>
+</html>

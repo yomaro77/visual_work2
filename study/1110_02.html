@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>고객정보</title>
+    <style>
+        table {
+            border: 1px;
+            border-style: dashed;
+        }
+    </style>
+</head>
+<body>
+    
+    <table>
+        <thead>
+            <tr>
+                <th>이름</th>
+                <th>번호</th>
+                <th>주소</th>
+            </tr>
+        </thead>
+        <tbody id="profileList">
+        </tbody>
+    </table>
+    <script>
+        let profile = [{name:"김구라", phone:"010-0000-0000", address:"서울시 서초구 양재동 구리동동 22-2"}, {name:"해골", phone:"010-1111-1111", address:"강남구 논현동 에이콘 11-2 3층"}];
+
+        profile.forEach(function(item, index){
+            let tr = document.createElement("tr");
+            let td1 = document.createElement("td");
+            let td2 = document.createElement("td");
+            let td3 = document.createElement("td");
+
+            td1.innerText = item.name;
+            td2.innerText = item.phone;
+            td3.innerText = item.address;
+
+            document.querySelector("#profileList").append(tr);
+            tr.append(td1);
+            tr.append(td2);
+            tr.append(td3);
+        });
+
+    </script>
+</body>
+</html>
