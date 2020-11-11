@@ -17,6 +17,9 @@
             border-radius: 2px;
             margin: 0 0 0 5px;
         }
+        .inputSize {
+            width: 80px;
+        }
     </style>
 </head>
 <body>
@@ -35,6 +38,12 @@
     <div>
         <select id="lineSize"></select>
         <button id="backReset">배경지우기</button>
+
+        선 색상코드 : <input type="text" id="thisColor" class="inputSize" />
+        <button id="thisColorCopy">복사하기</button>
+
+        배경 색상코드 : <input type="text" id="thisColor2" class="inputSize" />
+        <button id="thisColorCopy2">복사하기</button>
     </div>
     
     <script>
@@ -117,8 +126,38 @@
             button.addEventListener("click", function(){
                 lineColor = this.value;
                 console.log(this.value);
+                //선 색상 코드 집어넣기
+                document.querySelector("#thisColor").value = this.value;
             });
             document.querySelector(".lineColor").append(button);
+
+            //선 색상 코드 집어넣기
+            document.querySelector("#thisColor").value = this.value;
+        });
+
+        //선 색상 코드 복사하기(CTRL+C)
+        document.querySelector("#thisColorCopy").addEventListener("click", function(){
+            let thisColor = document.querySelector("#thisColor");
+            if(thisColor.value != ""){
+                thisColor.select();
+                document.execCommand("copy");
+                alert("복사되었습니다.");
+            } else {
+                alert("선 색상을 선택해주세요~");
+            }
+        });
+
+
+        //배경 색상 코드 복사하기(CTRL+C)
+        document.querySelector("#thisColorCopy2").addEventListener("click", function(){
+            let thisColor2 = document.querySelector("#thisColor2");
+            if(thisColor2.value != ""){
+                thisColor2.select();
+                document.execCommand("copy");
+                alert("복사되었습니다.");
+            } else {
+                alert("배경 색상을 선택해주세요~");
+            }
         });
 
         // 선 굵기
@@ -149,9 +188,17 @@
             btn.addEventListener("click", function(){
                 context.fillStyle = this.value;
                 context.fillRect(0, 0, 700, 700);
+
+                //배경 색상 코드 집어넣기
+                document.querySelector("#thisColor2").value = this.value;
             });
             document.querySelector(".backColor").append(btn);
+
+            //배경 색상 코드 집어넣기
+            document.querySelector("#thisColor2").value = this.value;
         });
+
+
 
 
 
