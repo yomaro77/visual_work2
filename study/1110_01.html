@@ -7,9 +7,10 @@
     <style>
         canvas {
             border: 1px dashed red;
+            cursor: crosshair;
         }
 
-        button {
+        .btnBox{
             width: 20px;
             height: 20px;
             border: 0;
@@ -23,10 +24,18 @@
     <div id="myCanvas">
 
     </div>
-    <div class="lineColor">
-        <input type="color" id="changeLineColor" />
+    <span class="lineColor">
+        선 색상 변경<input type="color" id="changeLineColor" />
+    </span>
+
+    <span class="backColor">
+        배경 색상 변경<input type="color" id="changeBackColor" />
+    </span>
+
+    <div>
+        <select id="lineSize"></select>
+        <button id="backReset">배경지우기</button>
     </div>
-    <select id="lineSize"></select>
     
     <script>
         let canvas = document.createElement("canvas");
@@ -40,9 +49,22 @@
         let clickBtn = false;
         let lineColor = "red";
         let lineSize = 10;
+        let backColor = "white";
+        let mOut = false;
 
         context.lineCap = "round";
         context.lineWidth = lineSize;
+
+        let gradient = context.createLinearGradient(0, 0, canvas.width, canvas.height);
+        gradient.addColorStop("0", "red");
+        gradient.addColorStop("0.5", "blue");
+        gradient.addColorStop("1.0", "pink");
+        context.strokeStyle = gradient;
+        context.strokeRect(10, 10, 100, 100);
+
+        context.font = "30px Verdana";
+        context.strokeText("hello", 10, 500);
+
 
 
 
@@ -50,6 +72,7 @@
 
         canvas.addEventListener("mousedown", function(){
             clickBtn = true;
+            mOut = false;
             context.strokeStyle = lineColor;
             context.lineWidth = lineSize;
 
@@ -74,9 +97,21 @@
             clickBtn = false;
         });
 
+        canvas.addEventListener("mouseout", function(e){
+            mOut = true;
+        });
+
+        document.body.addEventListener("mouseup", function(){
+            if(mOut == true) {
+                clickBtn = false;
+            }
+        });
+
+        //선 색상
         document.querySelector("#changeLineColor").addEventListener("change", function(){
             lineColor = this.value;
             let button = document.createElement("button");
+            button.setAttribute("class", "btnBox");
             button.setAttribute("value", lineColor);
             button.setAttribute("style", `background-color: ${lineColor}`);
             button.addEventListener("click", function(){
@@ -86,7 +121,7 @@
             document.querySelector(".lineColor").append(button);
         });
 
-
+        // 선 굵기
         for(i=0; i<101; i++){
             let option = document.createElement("option");
             option.innerText = i;
@@ -95,6 +130,31 @@
         document.querySelector("#lineSize").addEventListener("change", function(){
             lineSize = this.value;
         });
+
+        //배경 리셋
+        document.querySelector("#backReset").addEventListener("click", function(){
+            context.fillStyle = "white";
+            context.fillRect(0, 0, 700, 700);
+        });
+
+        //배경색 변경
+        document.querySelector("#changeBackColor").addEventListener("change", function(e){
+            context.fillStyle = this.value;
+            context.fillRect(0, 0, 700, 700);
+
+            let btn = document.createElement("button");
+            btn.setAttribute("class", "btnBox")
+            btn.setAttribute("value", this.value);
+            btn.setAttribute("style", `background-color: ${this.value}`);
+            btn.addEventListener("click", function(){
+                context.fillStyle = this.value;
+                context.fillRect(0, 0, 700, 700);
+            });
+            document.querySelector(".backColor").append(btn);
+        });
+
+
+
 
 
 

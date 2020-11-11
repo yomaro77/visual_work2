@@ -1,0 +1,35 @@
+<!--★외부(external), 내부(internal), inline css영역 3가지 익히기★-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>hello.html</title>
+    <!--외부(external) css 로딩하기 (= 'link' + tab)-->
+    <link rel="stylesheet" href="./css/custom.css"> 
+    <style>
+        /* 
+            여기는 internal(내부) css 영역 => internal css영역은 반드시 head 안에서 작성.
+            margin : 전체 크기
+            border : 경계선의 크기
+            padding : 마진과 콘텐츠 사이의 여백 크기
+            top -> right -> bottom -> left (시계방향)
+            margin-top~left  padding-top~left  border-top~left 총 12개의 디폴트 속성이 존재 
+        */
+        div{
+            /* 기본 문법 : css attribute name(속성명) : value;(값) */
+            margin-top: 100px;
+            border-right: 10px;  /*적용x*/
+            padding-bottom: 20px; padding-top: 20px;
+            color: #ff0000;
+        }
+    </style>
+</head>
+<body>
+    <div>css 를 배워 보아요~</div>
+    <!-- style= "여기는 inline css 영역", padding 영역까지 적용됨!! -->
+    <div style="background-color: yellow;">css 를 배워 보아요~</div> 
+    <div>css 를 배워 보아요~</div>
+    <p >p1 입니다.</p>
+</body>
+</html>
