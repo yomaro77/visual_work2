@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        p::first-letter {
+            color: red;
+        }
+        p::first-line {
+            color: yellow;
+        }
+        p > a:link {
+            color: pink;
+        }
+        div {
+            width: 200px;
+            line-height: 200px;
+            border: 1px solid cadetblue;
+            float: left;
+            margin-right: 20px;
+            text-align: center;
+            vertical-align: middle;
+            font-size: 18px;
+        }
+        div:hover {
+            background-color: cadetblue;
+        }
+        div:active {
+            font-size: 20px;
+            box-shadow: 0 0 0 2px cadetblue;
+        }
+
+        #test > span{
+            color: hotpink;
+        }
+        #test > #test2 {
+            color: blue !important;
+            /* visibility: hidden; */ /* 공간은 차지하고 안보임 */
+            visibility: visible; /* 보임 */
+        }
+
+        #span1 {
+            position: relative;
+            font-size: 20px;
+            font-weight: bold;
+            top: 100px;
+            left: 100px;
+            color: blueviolet;
+        }
+        #span2 {
+            position: relative;
+            font-size: 20px;
+            font-weight: bold;
+            top: 105px;
+            left: 55px;
+            color: lightskyblue;
+        }
+        #span3 {
+            position: relative;
+            font-size: 20px;
+            font-weight: bold;
+            top: 110px;
+            left: 10px;
+            color: chartreuse;
+        }
+        #span4 {
+            position: relative;
+            font-size: 20px;
+            font-weight: bold;
+            top: 115px;
+            left: -35px;
+            color: tomato;
+        }
+        #span5 {
+            position: relative;
+            font-size: 20px;
+            font-weight: bold;
+            top: 120px;
+            left: -80px;
+            color: hotpink;
+        }
+        div#numberDiv {
+            width: 300px;
+            height: 300px;
+        }
+    </style>
+</head>
+<body>
+    
+    <p>Lorem <a href="test.php">text</a>ipsum dolor sit amet consectetur adipisicing elit. Natus dolores quasi reiciendis consequatur unde, magnam veritatis perspiciatis doloribus eaque ab magni atque repellat quidem excepturi, provident cupiditate aspernatur aut eveniet?</p>
+    <div>real estate</div>
+    <p>Lorem <a href="test.php">text</a>ipsum dolor sit amet consectetur adipisicing elit. Natus dolores quasi reiciendis consequatur unde, magnam veritatis perspiciatis doloribus eaque ab magni atque repellat quidem excepturi, provident cupiditate aspernatur aut eveniet?</p>
+    <p>Lorem <a href="test.php">text</a>ipsum dolor sit amet consectetur adipisicing elit. Natus dolores quasi reiciendis consequatur unde, magnam veritatis perspiciatis doloribus eaque ab magni atque repellat quidem excepturi, provident cupiditate aspernatur aut eveniet?</p>
+    <p>Lorem <a href="test.php">text</a>ipsum dolor sit amet consectetur adipisicing elit. Natus dolores quasi reiciendis consequatur unde, magnam veritatis perspiciatis doloribus eaque ab magni atque repellat quidem excepturi, provident cupiditate aspernatur aut eveniet?</p>
+    <p>Lorem <a href="test.php">text</a>ipsum dolor sit amet consectetur adipisicing elit. Natus dolores quasi reiciendis consequatur unde, magnam veritatis perspiciatis doloribus eaque ab magni atque repellat quidem excepturi, provident cupiditate aspernatur aut eveniet?</p>
+
+    <p id="test">
+        <span>hong</span>
+        <span id="test2">jun</span>
+        <span >ho</span>
+    </p>
+
+    <div id="numberDiv">
+        <span id="span1">1234</span>
+        <span id="span2">1234</span>
+        <span id="span3">1234</span>
+        <span id="span4">1234</span>
+        <span id="span5">1234</span>
+    </div>
+
+    <script>
+        let toggle = true;
+        document.querySelector("#numberDiv").addEventListener("click", function(){
+            let span = document.querySelectorAll("#numberDiv > span");
+
+            if(toggle == true){
+                span.forEach(function(item, index){
+                    item.setAttribute("style", `z-index : ${10 - index}`);
+                });
+                toggle = false;
+            } else {
+                span.forEach(function(item, index){
+                    item.setAttribute("style", `z-index : ${index}`);
+                });
+                toggle = true;
+            }
+        });
+
+    </script>
+
+</body>
+</html>
