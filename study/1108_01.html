@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        canvas {
+            width: 500;
+            height: 500;
+        }
+    </style>
+</head>
+<body>
+    <h1>1108 study</h1>
+    <div></div>
+    
+    <script>
+        let canvas = document.createElement('canvas');
+        let ctx = canvas.getContext('2d');
+        document.body.append(canvas);
+
+        ctx.beginPath();
+        ctx.arc(75, 75, 50, 0, Math.PI * 2, );
+        ctx.stroke();
+
+        ctx.moveTo(100, 100);
+        ctx.lineTo(200, 200);
+        ctx.lineTo(500, 500);
+        ctx.stroke();
+
+
+    </script>
+</body>
+</html>

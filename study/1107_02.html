@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>배열에 이름을 담아서 출력해보자</h1>
+    <p>
+        <label for="inputName" 이름></label><input type="text" id="inputName" placeholder="이름을 입력하세요..." autofocus />
+        <button type="button" id="saveBtn">이름저장</button>
+        <button type="button" id="viewBtn">저장된 이름 리스트 보기</button>
+    </p>
+    <p>
+        * 이름저장을 하면 배열 안에 저장됩니다.
+    </p>
+    <p>
+        <ul id="viewNameList"></ul>
+    </p>
+
+
+    <script>
+
+        //이름을 담을 배열을 생성
+        let nameList = [];
+        //이름 입력값 변수로 참조
+        let inputName = document.querySelector("#inputName");
+        //이름 배열에 저장
+        document.querySelector("#saveBtn").addEventListener("click", function(){
+            nameList.push(inputName.value);
+            inputName.value = "";
+            inputName.focus();
+            console.log(nameList);
+        });
+
+
+        //저장된 이름 리스트 출력
+        /*
+        document.querySelector("#viewBtn").addEventListener("click", function(){
+            document.querySelector("#viewNameList").innerText = "";
+            for(i=0; i<nameList.length; i++){
+                let li = document.createElement("li");
+                li.innerText = nameList[i];
+                document.querySelector("#viewNameList").append(li);
+            }
+        });
+        */
+
+
+        //foreach를 사용해보자
+        document.querySelector("#viewBtn").addEventListener("click", function(){
+            let viewNameList = document.querySelector("#viewNameList");
+            viewNameList.innerText = "";
+
+            nameList.forEach(function(item, index){
+                let li = document.createElement("li");
+                li.innerText = item;
+                viewNameList.append(li);
+            });
+
+        });
+
+        //enter 키 적용
+        document.querySelector("#inputName").addEventListener("keydown", function(event){
+            if(event.key == "Enter"){
+                nameList.push(this.value);
+                this.value = "";
+                this.focus();
+            }
+        });
+    </script>
+</body>
+</html>

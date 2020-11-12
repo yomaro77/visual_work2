@@ -36,7 +36,6 @@
     </span>
 
     <div>
-        <select id="lineSize"></select>
         <button id="backReset">배경지우기</button>
 
         선 색상코드 : <input type="text" id="thisColor" class="inputSize" readonly />
@@ -46,7 +45,16 @@
         <button id="thisColorCopy2">복사하기</button>
     </div>
     <div>
-        <select id="cursorSelect"></select>
+        <label for="cusorSelect">커서모양</label>
+        <select id="cursorSelect">
+            <option value="crosshair" selected>십자모양</option>
+            <option value="cell">두꺼운십자모양</option>
+            <option value="default">기본모양</option>
+            <option value="wait">대기중모양</option>
+        </select>
+        <label for="lineSize">선굵기</label>
+        <select id="lineSize"></select>
+        <button id="eraser">지우개</button>
     </div>
     
     <script>
@@ -63,9 +71,12 @@
         let lineSize = 10;
         let backColor = "white";
         let mOut = false;
+        let eraserBtn = false;
 
         context.lineCap = "round";
         context.lineWidth = lineSize;
+
+
 
         /* 그라디언트 연습한거..
         let gradient = context.createLinearGradient(0, 0, canvas.width, canvas.height);
@@ -176,8 +187,7 @@
 
         //배경 리셋
         document.querySelector("#backReset").addEventListener("click", function(){
-            context.fillStyle = "white";
-            context.fillRect(0, 0, 700, 700);
+            context.clearRect(0, 0, canvas.width, canvas.height);
         });
 
         //배경색 변경
@@ -203,13 +213,9 @@
         });
 
         //마우스 커서 옵션 추가
-        let cursorOption = document.createElement("option");
-        cursorOption.innerText = "crosshair";
-        cursorOption.innerText = "hand";
-        cursorOption.innerText = "default";
-        cursorOption.innerText = "wait";
-        document.querySelector("#cursorSelect").append(cursorOption);
-
+        document.querySelector("#cursorSelect").addEventListener("change", function(){
+            canvas.style.cursor = this.value;
+        });
 
 
 
