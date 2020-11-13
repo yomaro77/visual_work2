@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="./css/bootstrap.css">
+</head>
+<body>
+    <div class="container">
+        <form action="">
+            <h1>폼 요소의 도움말</h1>
+            <div class="form-group">
+                <label">아이디</label>
+                <input type="text" class="form-control">
+                <span class="form-text text-muted">
+                    영문자로 시작하고 숫자를 조합해주세요
+                </span>
+            </div>
+            <button type="submit" class="btn btn-outline-primary">가입</button>
+        </form>
+
+        <h1>폼 검증 상태 표시</h1>
+        <form action="" class="needs-validation">
+            <div class="form-group">
+                <label">이메일</label>
+                <input type="text" class="form-control is-invalid">
+                <div class="valid-feedback">
+                    잘 입력 했습니다.
+                </div>
+                <div class="invalid-feedback">
+                    이메일 형식에 맞게 입력 하세요.
+                </div>
+            </div>
+            <button type="submit" class="btn btn-outline-secondary">가입</button>
+        </form>
+
+        <h1 class="mt-5">폼 검증 상태 표시(실제 동작)</h1>
+        <form action="" class="needs-validation">
+            <div class="form-group">
+                <label for="nick">별명 입력</label>
+                <input type="text" id="nick" class="form-control" />
+                <div class="invalid-feedback">
+                    2글자 이상 입력하세요
+                </div>
+            </div>
+            <button type="submit" class="btn btn-primary" id="nickSave">저장</button>
+        </form>
+    </div>
+
+
+    <script>
+        let nick = document.querySelector("#nick");
+        nick.addEventListener("input", function(){
+            nick.classList.remove("is-invalid");
+            nick.classList.remove("is-valid");
+            if(nick.value.length < 2){
+                nick.classList.add("is-invalid");
+            } else {
+                this.classList.add("is-valid");
+            }
+        });
+    </script>
+</body>
+</html>
