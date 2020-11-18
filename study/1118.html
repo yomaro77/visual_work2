@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <button id="gugudan">1</button>
+    <button id="gugudan">2</button>
+    <button id="gugudan">3</button>
+    <button id="gugudan">4</button>
+    <button id="gugudan">5</button>
+    <button id="gugudan">6</button>
+    <button id="gugudan">7</button>
+    <button id="gugudan">8</button>
+    <button id="gugudan">9</button>
+    <p id="gugudanResult"></p>
+    <script>
+        let result = document.querySelector('#gugudanResult');
+        let gugudan = document.querySelectorAll('#gugudan');
+        gugudan.forEach(function(item, index){
+            item.addEventListener('click', function(){
+                result.innerText = "";
+                let num = this.innerText;
+                for(let i=1; i<=9; i++) {
+                    result.innerText += `${num} * ${i} = ${num * i} \n`;
+                }
+            });
+        });
+    </script>
+</body>
+</html>

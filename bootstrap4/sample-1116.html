@@ -63,61 +63,61 @@
             </nav>
         </div> <!-- slide end -->
         <!-- card -->
-        <div class="row mt-3">       
-            <div class="col-3">
-                <div class="card" style="width: 16rem;">
+        <div class="row mt-3">
+
+                <div class="card col-xl-3 col-lg-6" style="width: 16rem;">
                     <img src="./images/1113.jpg" class="card-img-top" alt="...">
                     <div class="card-body">
-                    <h5 class="card-title">Card title</h5>
+                    <h5 class="card-title">Card title1</h5>
                     <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
                     <a href="#" class="btn btn-primary">Go somewhere</a>
                     </div>
                 </div>
-            </div>
-            <div class="col-3">
-                <div class="card" style="width: 16rem;">
+            
+            
+                <div class="card col-xl-3 col-lg-6" style="width: 16rem;">
                     <img src="./images/1113.jpg" class="card-img-top" alt="...">
                     <div class="card-body">
-                    <h5 class="card-title">Card title</h5>
+                    <h5 class="card-title">Card title2</h5>
                     <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
                     <a href="#" class="btn btn-primary">Go somewhere</a>
                     </div>
                 </div>
-            </div>
-            <div class="col-3">
-                <div class="card" style="width: 16rem;">
+            
+            
+                <div class="card col-xl-3 col-lg-6" style="width: 16rem;">
                     <img src="./images/1113.jpg" class="card-img-top" alt="...">
                     <div class="card-body">
-                    <h5 class="card-title">Card title</h5>
+                    <h5 class="card-title">Card title3</h5>
                     <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
                     <a href="#" class="btn btn-primary">Go somewhere</a>
                     </div>
                 </div>
-            </div>
-            <div class="col-3">
-                <div class="card" style="width: 16rem;">
+            
+            
+                <div class="card col-xl-3 col-lg-6" style="width: 16rem;">
                     <img src="./images/1113.jpg" class="card-img-top" alt="...">
                     <div class="card-body">
-                    <h5 class="card-title">Card title</h5>
+                    <h5 class="card-title">Card title4</h5>
                     <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
                     <a href="#" class="btn btn-primary">Go somewhere</a>
                     </div>
                 </div>
-            </div>   
+             
         </div> <!-- card end -->
 
         <!-- explain -->
         <div class="row mt-3">
             <div class="col jumbotron">
-                <h1 class="display-4">Hello, world!</h1>
-                <p class="lead">This is a simple hero unit, a simple jumbotron-style component for calling extra attention to featured content or information.</p>
+                <h1 class="display-4" id="save1">Hello, world!</h1>
+                <p class="lead" id="save2">This is a simple hero unit, a simple jumbotron-style component for calling extra attention to featured content or information.</p>
                 <hr class="my-4">
-                <p>It uses utility classes for typography and spacing to space content out within the larger container.</p>
-                <a class="btn btn-primary btn-lg" href="#" role="button">Learn more</a>
+                <p id="save3">It uses utility classes for typography and spacing to space content out within the larger container.</p>
+                <a id="save4" class="btn btn-primary btn-lg" href="#" role="button" data-toggle="modal" data-target="#modal1">Learn more</a>
             </div>
         </div>
         <!-- modal -->
-        <div class="modal" tabindex="-1">
+        <div class="modal" id="modal1" tabindex="-1">
             <div class="modal-dialog">
               <div class="modal-content">
                 <div class="modal-header">
@@ -127,11 +127,11 @@
                   </button>
                 </div>
                 <div class="modal-body">
-                  <p>Modal body text goes here.</p>
+                  <p id="saveContent">세이브 버튼을 눌렀습니까?</p>
                 </div>
                 <div class="modal-footer">
                   <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                  <button type="button" class="btn btn-primary">Save changes</button>
+                  <button type="button" class="btn btn-primary" id="saveBtn">Save</button>
                 </div>
               </div>
             </div>
@@ -140,10 +140,22 @@
         <div class="row mt-3">
             <p class="col text-muted" style="font-size: 0.9rem;">(주)에이콘이즈 에이콘아카데미(강남) 강남점 : 서울특별시 강남구 테헤란로 124 삼원타워 5층 | TEL : 02-539-8879 | 대표: 최 건 식 | 사업자등록번호:220-88-42280 | 통신판매업신고증 : 제 2014-서울강남-01575호</p>
         </div><!-- footer end -->
+
     </div> <!-- body end -->
     
     <script>
-       
+        $('#saveBtn').on("click", function(e){
+            $('#saveContent').text("네 눌렀습니다.");
+            $('#save1').text("Button");
+            $('#save2').text("버튼을 눌러서 이 내용이 바뀐겁니다.");
+            $('#save3').text("버튼을 왜 눌러가지고 내용이 바뀌게 합니까.....");
+
+            $('#save4').text("이젠 사용불가");
+            $('#save4').attr("disabled", "disabled");
+            $('#save4').removeClass("btn-primary");
+            $('#save4').addClass("disabled");
+            $('#save4').attr("style", "background-color:grey;");
+        });
     </script>
 </body>
 </html>
